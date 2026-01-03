@@ -5,6 +5,7 @@ from .serializers import CategorySerializer, NoteSerializer
 
 
 class CategoryViewSet(viewsets.ModelViewSet):
+    queryset = Category.objects.all() # for render delete after testing
     serializer_class = CategorySerializer
     permission_classes = [permissions.IsAuthenticated]
 
