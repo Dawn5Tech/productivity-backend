@@ -92,7 +92,8 @@ DATABASES = {
     'default': dj_database_url.config(
         #'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': BASE_DIR / 'db.sqlite3',
-        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}"
+        conn_max_age=600,
+        ssl_require=True,
     )
 }
 
@@ -138,25 +139,4 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
     ],
-}
-
-#render app codes
-CSRF_TRUSTED_ORIGINS = [
-    "https://productivity-backend-zpny.onrender.com"
-]
-
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-USE_X_FORWARDED_HOST = True
-
-CORS_ALLOW_ALL_ORIGINS = True
-
-LOGGING = {
-    "version": 1,
-    "handlers": {
-        "console": {"class": "logging.StreamHandler"},
-    },
-    "root": {
-        "handlers": ["console"],
-        "level": "DEBUG",
-    },
 }
