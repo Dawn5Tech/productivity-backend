@@ -32,10 +32,10 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 
-ALLOWED_HOSTS = [
+ALLOWED_HOSTS = ["productivity-backend-zpny.onrender.com",
+    ".onrender.com",
     "localhost",
     "127.0.0.1",
-    "productivity-backend-zpny.onrender.com" #render codes, you can delete after testing
 ]
 
 
