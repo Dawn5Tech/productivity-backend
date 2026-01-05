@@ -17,6 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include # Add 'include' here
 from rest_framework.authtoken import views # New
+from django.http import JsonResponse # just added from chatgpt
+
+def health_check(request):
+    return JsonResponse({"status": "ok"}) # just added from chatgpt
 
 urlpatterns = [
     path('admin/', admin.site.urls),
