@@ -33,7 +33,6 @@ DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 
 ALLOWED_HOSTS = ["productivity-backend-zpny.onrender.com",
-    ".onrender.com",
     "localhost",
     "127.0.0.1",
 ]
