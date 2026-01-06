@@ -22,3 +22,7 @@ class NoteSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("You do not own this category!")
 
         return value
+    
+    def create(self, validated_data):
+        validated_data['owner'] = self.context['request'].user
+        return super().create(validated_data)
