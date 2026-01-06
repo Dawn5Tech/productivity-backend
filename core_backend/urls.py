@@ -42,4 +42,5 @@ urlpatterns = [
     path('login/', views.obtain_auth_token),
     path('notes/', include('notes.urls')), # Add this here
     path('', home),
+    path('debug/', debug_headers),  # <-- new debug route
 ]

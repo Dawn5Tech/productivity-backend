@@ -32,11 +32,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 
-ALLOWED_HOSTS = [
-    "productivity-backend-1.onrender.com",
-    "localhost",
-    "127.0.0.1",
-]
+ALLOWED_HOSTS = ["productivity-backend-1.onrender.com"]
 
 
 # Application definition
@@ -158,3 +154,7 @@ REST_FRAMEWORK = {
     ],
     
 }
+
+#render codes
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
