@@ -22,10 +22,14 @@ from django.http import JsonResponse # just added from chatgpt
 def health_check(request):
     return JsonResponse({"status": "ok"}) # just added from chatgpt
 
+def home(request):
+    return JsonResponse({"message": "API is running!"})
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('tasks/', include('tasks.urls')), # This connects our app!
     # This provides a new endpoint: /login/
     path('login/', views.obtain_auth_token),
     path('notes/', include('notes.urls')), # Add this here
+    path('', home),
 ]
