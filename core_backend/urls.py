@@ -18,12 +18,22 @@ from django.contrib import admin
 from django.urls import path, include # Add 'include' here
 from rest_framework.authtoken import views # New
 from django.http import JsonResponse # just added from chatgpt
+from rest_framework.decorators import api_view
+
 
 def health_check(request):
     return JsonResponse({"status": "ok"}) # just added from chatgpt
 
 def home(request):
     return JsonResponse({"message": "API is running!"})
+@api_view(['GET'])
+def debug_headers(request):
+    return JsonResponse({
+        "headers": dict(request.headers),
+        "host": request.get_host(),
+        "scheme": request.scheme
+    })
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
