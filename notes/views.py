@@ -1,11 +1,20 @@
 from rest_framework import viewsets, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.authtoken.views import obtain_auth_token
+from rest_framework.permissions import AllowAny
+from rest_framework.decorators import permission_classes
 from .models import Category, Note
 from .serializers import CategorySerializer, NoteSerializer
 
 
+@csrf_exempt
+@permission_classes([AllowAny])
+def token_view(request):
+    return obtain_auth_token(request)
+
+
 class CategoryViewSet(viewsets.ModelViewSet):
-    queryset = Category.objects.all() # for render delete after testing
     serializer_class = CategorySerializer
     permission_classes = [permissions.IsAuthenticated]
 
